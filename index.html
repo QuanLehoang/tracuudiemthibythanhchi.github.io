@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tra cứu kết quả</title>
+  <style>
+    body {
+      background:#0b1220;
+      font-family:Inter,system-ui;
+      color:#e6eef6;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      height:100vh;
+      margin:0;
+    }
+    .box{
+      background:rgba(255,255,255,0.05);
+      padding:22px;
+      border-radius:14px;
+      width:320px;
+      text-align:center;
+      box-shadow:0 10px 30px rgba(0,0,0,0.6);
+    }
+    input{
+      width:100%;
+      padding:10px;
+      border-radius:8px;
+      border:0;
+      margin-bottom:12px;
+      background:#121c34;
+      color:#e6eef6;
+    }
+    button{
+      width:100%;
+      padding:10px;
+      border-radius:8px;
+      border:0;
+      background:#1e2b4a;
+      color:#aee6ff;
+      font-weight:600;
+      cursor:pointer;
+    }
+    .result{
+      margin-top:16px;
+      font-size:18px;
+      min-height:24px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h2>Tra cứu kết quả</h2>
+    <input id="nameInput" placeholder="Nhập tên cần tra cứu...">
+    <button onclick="check()">Tra cứu</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    // Danh sách mẫu — bạn có thể thay đổi theo ý muốn
+    const passedList = ["An", "Bình", "Hà", "Thành", "Lan"];
+
+    function check(){
+      const name = document.getElementById("nameInput").value.trim();
+      const res = document.getElementById("result");
+
+      if(!name){
+        res.textContent = "Vui lòng nhập tên…";
+        return;
+      }
+
+      if(passedList.includes(name)){
+        res.textContent = name + "Chúc mùng bạn đã đậu trong kì thi này";
+      } else {
+        res.textContent = name + "Xin lỗi bạn đã trượt";
+      }
+    }
+  </script>
+
+</body>
+</html>
